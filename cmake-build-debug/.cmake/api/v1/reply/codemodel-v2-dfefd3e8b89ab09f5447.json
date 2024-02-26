@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.27"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "XIV_Longest_Common_Prefix",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "XIV_Longest_Common_Prefix::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-XIV_Longest_Common_Prefix-Debug-5e2d55ac79bb0f0961b4.json",
+					"name" : "XIV_Longest_Common_Prefix",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/alex241728/Library/CloudStorage/OneDrive-UniversityofToronto/Undergraduate/LeetCode/XIV Longest Common Prefix/cmake-build-debug",
+		"source" : "/Users/alex241728/Library/CloudStorage/OneDrive-UniversityofToronto/Undergraduate/LeetCode/XIV Longest Common Prefix"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
