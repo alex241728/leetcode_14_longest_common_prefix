@@ -6,6 +6,8 @@
 #define MAX_STRS_LEN (10)
 
 char* longestCommonPrefix(char**, int);
+static int compare(const void *, const void *);
+void sort(char* arr[], int arr_len);
 
 int main() {
     // allocate memory for strs and strings inside
@@ -25,6 +27,11 @@ int main() {
     strcpy(strs[2], "car");
     printf("%s\n", longestCommonPrefix(strs, 3));
 
+    strcpy(strs[0], "reflower");
+    strcpy(strs[1], "flow");
+    strcpy(strs[2], "flight");
+    printf("%s\n", longestCommonPrefix(strs, 3));
+
     // free memory for strings inside and strs
     for (int i = 0; i < MAX_STRS_LEN; i++) {
         free(strs[i]);
@@ -35,28 +42,33 @@ int main() {
 }
 
 char* longestCommonPrefix(char** strs, int strsSize) {
-    // check if the string array has strings in it
-    if (strs == NULL || strsSize == 0) {
-        return "";
-    }
+    sort(strs, strsSize);
+    char* s1 = malloc(sizeof(char) * (strlen(strs[0]) + 1));
+    strcpy(s1, strs[0]);
+    char* s2 = malloc(sizeof(char) * (strlen(strs[strsSize-1]) + 1));
+    strcpy(s2, strs[strsSize-1]);
+    char* result = malloc(sizeof(char) * (strlen(strs[0]) + 1));
 
-    // check if the first string is empty string
-    if (strcmp(strs[0], "") == 0) {
-        return "";
-    }
-
-    char* prefix = malloc(sizeof(strs[0])+1);
-    strcpy(prefix, strs[0]);
-    size_t prefix_len = strlen(strs[0]);
-    for (int i = 0; i < strsSize; i++) {
-        while (strncmp(strs[i], prefix, strlen(prefix)) != 0) {
-            prefix_len--;
-            strncpy(prefix, strs[0], prefix_len);
-            prefix[prefix_len+1] = '\0';
+    int i = 0;
+    while (i < strlen(s1) && i < strlen(s2)) {
+        if (s1[i] != s2[i]) {
+            break;
+        }
+        else {
+            i++;
         }
     }
+    strncpy(result, s1, i);
+    result[i] = '\0';
+    free(s1);
+    free(s2);
+    return result;
+}
 
-    free(prefix);
+static int compare(const void* a, const void* b) {
+    return strcmp(a, b);
+}
 
-    return prefix;
+void sort(char* arr[], int arr_len) {
+    qsort(arr, arr_len, sizeof(const char*), compare);
 }
